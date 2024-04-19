@@ -10,15 +10,15 @@ public class Gamespassapp {
         System.out.println();
 
         // perform 1 or more selections
-        @SuppressWarnings("resource")
+      //  @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         String choice = "y";
         while (choice.equalsIgnoreCase("y")) {
             System.out.print("Enter the Game you would like to purchase: ");
-            String productCode = sc.nextLine();  // read the product code
+            String GamepassCode = sc.nextLine();  // read the product code
 
             // get the Product object "p"
-            Gamepass g = GamepassDB.getGamepass(productCode);
+            Gamepass g = GamepassDB.getGamepass(GamepassCode);
 
             System.out.println();
             if (g != null) {
