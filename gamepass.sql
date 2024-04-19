@@ -113,6 +113,71 @@ INSERT INTO `game` VALUES (1,'FIFA 22','FOOTBALL GAME',60,124,'19/09/2022','6/10
 UNLOCK TABLES;
 
 --
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment` (
+  `Payment_ID` int NOT NULL AUTO_INCREMENT,
+  `Staff_ID` int NOT NULL,
+  `Customer_ID` int NOT NULL,
+  `Subscription_ID` int NOT NULL,
+  `Payment_amount` float NOT NULL,
+  `Payment_date` varchar(15) NOT NULL,
+  `Payment_type` varchar(30) NOT NULL,
+  PRIMARY KEY (`Payment_ID`),
+  KEY `Staff_ID` (`Staff_ID`),
+  KEY `Customer_ID` (`Customer_ID`),
+  KEY `Subscription_ID` (`Subscription_ID`),
+  CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`),
+  CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`Customer_ID`) REFERENCES `customer` (`Customer_ID`),
+  CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription` (`Subscription_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment`
+--
+
+LOCK TABLES `payment` WRITE;
+/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `staff`
+--
+
+DROP TABLE IF EXISTS `staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `staff` (
+  `Staff_ID` int NOT NULL AUTO_INCREMENT,
+  `Store_ID` int NOT NULL,
+  `First_Name` varchar(20) NOT NULL,
+  `Last_Name` varchar(35) NOT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Contract_length` varchar(15) NOT NULL,
+  `Contract_expiry_date` varchar(15) NOT NULL,
+  `Salary` int NOT NULL,
+  PRIMARY KEY (`Staff_ID`),
+  KEY `Store_ID` (`Store_ID`),
+  CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Store_ID`) REFERENCES `store` (`Store_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `staff`
+--
+
+LOCK TABLES `staff` WRITE;
+/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `store`
 --
 
@@ -178,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19 13:01:23
+-- Dump completed on 2024-04-19 13:56:51
