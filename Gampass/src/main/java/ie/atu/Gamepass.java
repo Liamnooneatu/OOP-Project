@@ -3,10 +3,14 @@ package ie.atu;
 import java.text.NumberFormat;
 
 public class Gamepass {
-    private String Name;
-    private String Devoloper;
-    public  double price;
-
+    public int gameId;
+    public String name;
+    public String description;
+    public String cost;
+    public String sizeGb;
+    public String releaseDate;
+    public String rating;
+    public String language;
     protected static int count = 0;
 
 
@@ -14,41 +18,82 @@ public class Gamepass {
 
     }
 
-    public String getName() {
-        return Name;
+    public int getGameId() {
+        return gameId;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 
-    public String getDevoloper() {
-        return Devoloper;
+    public String getTitle() {
+        return name;
     }
 
-    public void setDevoloper(String devoloper) {
-        Devoloper = devoloper;
+    public void setTitle(String title) {
+        this.name = title;
     }
 
-    public double getPrice() {
-        return price;
+    public String getDescription() {
+        return description;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getPriceFormatted() {
-        NumberFormat currency = NumberFormat.getCurrencyInstance();
-        return currency.format(price);
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public String getSizeGb() {
+        return sizeGb;
+    }
+
+    public void setSizeGb(String sizeGb) {
+        this.sizeGb = sizeGb;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     @Override
     public String toString() {
-        return
-                "Name: " + Name + "\n" +
-                "Developer: " + Devoloper + "\n" +
-                "price: " + price + "\n";
+        return "Gamepass{" +
+                "gameId=" + gameId +
+                ", title='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", cost=" + cost +
+                ", sizeGb=" + sizeGb +
+                ", releaseDate='" + releaseDate + '\'' +
+                ", rating='" + rating + '\'' +
+                ", language='" + language + '\'' +
+                '}';
     }
 
     public void setCode(String gamepassCode) {
@@ -57,3 +102,5 @@ public class Gamepass {
         return count;
     }
 }
+
+

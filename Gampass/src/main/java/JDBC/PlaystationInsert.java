@@ -3,8 +3,7 @@ package JDBC;
 import java.sql.*;
 import java.util.Scanner;
 
-public class Insert {
-
+public class PlaystationInsert {
     public static void main(String[] args) throws SQLException {
 
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/gamepass", "root", "password");
@@ -43,9 +42,7 @@ public class Insert {
             String Original_Language = scanner.nextLine();
             stmt.setString(7,Original_Language);
 
-            System.out.println("Platform: ");
-            String Platform = scanner.nextLine();
-            stmt.setString(8,Platform);
+            stmt.setString(8,"Playstation");
             stmt.executeUpdate();
 
             System.out.println("Insert completed successfully");
@@ -65,4 +62,5 @@ public class Insert {
         stmt.close();
         return id;
     }
+
 }
