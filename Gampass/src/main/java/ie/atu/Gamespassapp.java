@@ -10,7 +10,7 @@ public class Gamespassapp {
         System.out.println();
 
         // perform 1 or more selections
-        @SuppressWarnings("resource")
+      //  @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         String choice = "y";
         while (choice.equalsIgnoreCase("y")) {
