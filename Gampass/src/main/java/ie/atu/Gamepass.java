@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 public class Gamepass {
     private String Name;
     private String Devoloper;
-    private double price;
+    public  double price;
 
     protected static int count = 0;
 
