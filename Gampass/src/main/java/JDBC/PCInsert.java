@@ -5,7 +5,7 @@ import ie.atu.Gamepass;
 import java.sql.*;
 import java.util.Scanner;
 
-public class PCInsert extends Gamepass {
+public class PCInsert{
 
 
     public static void main(String[] args) throws SQLException {
