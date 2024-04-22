@@ -1,86 +1,54 @@
 package ie.atu;
-
 import java.sql.*;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Gamespassapp extends Gamepass{
-        public static void main(String[]args){
-            String url = "jdbc:mysql://localhost:3306/gamepass";
-            String username = "root";
-            String password = "password";
+public class Gamespassapp extends Gamepass {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/gamepass";
+        String username = "root";
+        String password = "password";
 
-            System.out.println("Welcome to the our GamePass");
-            System.out.println();
-
-
-            String selectSQL = "SELECT Title, Description, Cost, size_GB FROM game; ";
-
-            try(Connection connection = DriverManager.getConnection(url,username,password);
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(selectSQL)){
-
-                while (resultSet.next()) {
-                    String Title = resultSet.getString("Title");
-                    String Des = resultSet.getString("Description");
-                    String cost = resultSet.getString("Cost");
-                    String size = resultSet.getString("size_GB");
-
-                    System.out.println("Title: " + Title + ", Description " + Des + ", Cost: " + cost + "Size GB: "+ size);
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-        /*double totalCost = 0.0;
-        // perform 1 or more selections
-      //  @SuppressWarnings("resource")
-        Scanner sc = new Scanner(System.in);
-        String choice = "y";
-        while (choice.equalsIgnoreCase("y")) {
-            System.out.print("Enter the Game you would like to purchase: ");
-            String GamepassCode = sc.nextLine();
-
-
-            //Gamepass g = GamepassDB.getGamepass(GamepassCode);
-            String g = "jdbc:mysql://localhost:3306/gamepass";
-
-
-
-            System.out.println();
-            if (g != null) {
-                System.out.println("Description \n" + g.toString());
-                //totalCost += g.getPrice();
-            } else {
-                System.out.println("No product matches this product code.");
-            }
-
-            System.out.println();
-            System.out.println("GamePass count: " + Gamepass.getCount() + "\n");
-            System.out.println("Total Cost so far: " + totalCost);
-
-            // see if the user wants to continue
-            System.out.print("Continue adding more games (y/n): ");
-            choice = sc.nextLine();
-            System.out.println();
-
-
-        }*/
-
-        // Display the final total cost after the user finishes adding games
-       /* System.out.println("You have bought: " + Gamepass.getCount() + " Games");
-        System.out.println("Final Total Cost: " + totalCost);
-        System.out.println("Thank you for using our GamePass App \nWe hope you enjoyed your experience.");
+        System.out.println("Welcome to our GamePass");
         System.out.println();
 
-        System.out.print("could you please rate our Gamepass App out of 10 :) ");
-        String GamepassCode = sc.nextLine();
-        System.out.print("Thank you for your cooperation");
+        // Define the platform options and their corresponding SQL queries
+        String[] platforms = {"XBOX", "PC", "Playstation"};
+        String[] queries = {
+                "SELECT * FROM game WHERE Platform = 'XBOX'",
+                "SELECT * FROM game WHERE Platform = 'PC'",
+                "SELECT * FROM game WHERE Platform = 'Playstation'"
+        };
 
-    }*/
+        // Display platform options
+        System.out.println("Please select the platform:");
+        for (int i = 0; i < platforms.length; i++) {
+            System.out.println((i + 1) + ". " + platforms[i]);
+        }
 
-//}
+        Scanner userInput = new Scanner(System.in);
+        int choice = userInput.nextInt();
+
+        if (choice >= 1 && choice <= platforms.length) {
+            String selectSQL = queries[choice - 1]; // Get the corresponding SQL query based on user's choice
+
+            try (Connection connection = DriverManager.getConnection(url, username, password);
+                 Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(selectSQL)) {
+
+                while (resultSet.next()) {
+                    String title = resultSet.getString("Title");
+                    String description = resultSet.getString("Description");
+                    double cost = resultSet.getDouble("Cost");
+                    double sizeGB = resultSet.getDouble("size_GB");
+
+                    System.out.println("Title: " + title + ", Description: " + description + ", Cost: " + cost + ", Size GB: " + sizeGB);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Invalid choice.");
+        }
+    }
+}
