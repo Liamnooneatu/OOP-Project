@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `gamepass` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gamepass`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gamepass
@@ -35,7 +37,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`Address_ID`),
   KEY `Customer_ID` (`Customer_ID`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`Customer_ID`) REFERENCES `customer` (`Customer_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +46,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES (1,1,'EUROPE','IRELAND','GALWAY','THISROAD','41','H55 5555','2024-04-22 13:43:20'),(2,2,'EUROPE','IRELAND','DUBLIN','THATROAD','33','H55 5555','2024-04-22 13:47:38'),(3,3,'EUROPE','IRELAND','MAYO','ANYROAD','23','H55 5555','2024-04-22 13:47:38'),(4,4,'EUROPE','SPAIN','MADRID','ANYROAD','44','H55 5555','2024-04-22 13:47:38'),(5,5,'UK','ENGLAND','LONDON','THISROAD','15','H55 5555','2024-04-22 13:47:38'),(6,6,'NORTH AMERICA','USA','MIAMI','EVERYROAD','45','H55 5555','2024-04-22 13:47:38');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +134,7 @@ CREATE TABLE `payment` (
   CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`),
   CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`Customer_ID`) REFERENCES `customer` (`Customer_ID`),
   CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`Subscription_ID`) REFERENCES `subscription` (`Subscription_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,6 +143,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
+INSERT INTO `payment` VALUES (1,1,1,1,12.99,'12/12/2023','VISA'),(2,1,2,2,12.99,'21/01/2023','MASTERCARD'),(3,1,3,3,24.99,'13/02/2023','PAYPAL'),(4,1,4,4,59.99,'19/02/2023','PAYPAL'),(5,1,5,5,59.99,'19/02/2023','MASTERCARD'),(6,1,6,6,59.99,'19/02/2023','VISA');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +166,7 @@ CREATE TABLE `staff` (
   PRIMARY KEY (`Staff_ID`),
   KEY `Store_ID` (`Store_ID`),
   CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Store_ID`) REFERENCES `store` (`Store_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +175,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES (1,1,'TOM','SCOTT','tom@noemail.com','3 YEARS','2026',35000),(2,1,'KATY','THOMAS','katy@noemail.com','2 YEARS','2024',33000),(3,1,'KYLE','JAXON','kyle@noemail.com','4 YEARS','2026',38000),(4,2,'JEN','WIGHAM','jen@noemail.com','1 YEAR','2025',40000),(5,3,'BOB','FRANCIS','bob@noemail.com','3 YEARS','2027',36000),(6,4,'DOUG','ALLEN','doug@noemail.com','3 YEARS','2027',36000);
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +194,7 @@ CREATE TABLE `store` (
   `Store_email` varchar(40) NOT NULL,
   `Store_website` varchar(50) NOT NULL,
   PRIMARY KEY (`Store_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -198,6 +203,7 @@ CREATE TABLE `store` (
 
 LOCK TABLES `store` WRITE;
 /*!40000 ALTER TABLE `store` DISABLE KEYS */;
+INSERT INTO `store` VALUES (1,'IRELAND',3,'083 555 5555','thisstore@noemail.com','thisstore.com'),(2,'ENGLAND',1,'083 555 5555','thatstore@noemail.com','thatstore.com'),(3,'MIAMI',1,'083 555 5555','everystore@noemail.com','everystore.com'),(4,'SPAIN',1,'083 555 5555','anystore@noemail.com','anystore.com');
 /*!40000 ALTER TABLE `store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -219,7 +225,7 @@ CREATE TABLE `subscription` (
   PRIMARY KEY (`Subscription_ID`),
   KEY `Customer_ID` (`Customer_ID`),
   CONSTRAINT `subscription_ibfk_1` FOREIGN KEY (`Customer_ID`) REFERENCES `customer` (`Customer_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,6 +234,7 @@ CREATE TABLE `subscription` (
 
 LOCK TABLES `subscription` WRITE;
 /*!40000 ALTER TABLE `subscription` DISABLE KEYS */;
+INSERT INTO `subscription` VALUES (1,1,12.99,'1 MONTH','12/12/2023','12/01/2024','2024-04-22 14:07:28'),(2,2,12.99,'1 MONTH','21/01/2023','21/02/2024','2024-04-22 14:07:28'),(3,3,24.99,'2 MONTHS','13/02/2023','13/04/2023','2024-04-22 14:07:28'),(4,4,59.99,'6 MONTHS','19/02/2023','13/08/2023','2024-04-22 14:07:28'),(5,5,59.99,'6 MONTHS','19/02/2023','13/08/2023','2024-04-22 14:07:28'),(6,6,59.99,'6 MONTHS','19/02/2023','13/08/2023','2024-04-22 14:07:28');
 /*!40000 ALTER TABLE `subscription` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -240,4 +247,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-22 14:36:41
+-- Dump completed on 2024-04-22 15:35:18
