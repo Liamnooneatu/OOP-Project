@@ -3,7 +3,7 @@ package JDBC;
 import java.sql.*;
 import java.util.Scanner;
 
-public class XBOXSelect {
+public class XBOXInsert {
     public static void main(String[] args) throws SQLException {
 
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/gamepass", "root", "password");
