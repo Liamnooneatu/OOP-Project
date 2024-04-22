@@ -9,5 +9,8 @@
         <module name="Gampass" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Gampass" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
