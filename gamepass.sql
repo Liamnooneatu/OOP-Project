@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `gamepass` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `gamepass`;
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: gamepass
@@ -65,7 +67,7 @@ CREATE TABLE `customer` (
   `Gender` varchar(20) NOT NULL,
   `Date_of_birth` varchar(30) NOT NULL,
   PRIMARY KEY (`Customer_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,7 +76,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Nathan','McCormack',20,'nthn@noemail.com','nathan20','083 555 5555','MALE','01/01/2003'),(2,'Eoin','Fitz',20,'eoin@noemail.com','eoin20','083 555 5555','MALE','01/01/2003'),(3,'Naoise','O Loughlin',54,'naoise@noemail.com','naoise20','083 555 5555','MALE','01/01/1966'),(4,'Liam','Noone',20,'liam@noemail.com','liam20','083 555 5555','MALE','01/01/2003'),(5,'Cathal','Hardy',108,'cathal@noemail.com','cathal40','083 555 5555','MALE','01/01/1916'),(6,'Ashton','Adams',22,'ashton@noemail.com','ashton22','083 555 5555','MALE','01/01/2001'),(7,'Rasmus','Hojlund',21,'rasmus@noemail.com','rasmus21','083 555 5555','MALE','01/01/2002'),(8,'John','Jones',24,'john@noemail.com','john24','083 555 5555','MALE','01/01/1999'),(9,'Carl','Smith',26,'carl@noemail.com','carl26','083 555 5555','MALE','01/01/1997'),(10,'Rosie','Wingrove',23,'rosie@noemail.com','rosie23','083 555 5555','FEMALE','01/01/2000'),(11,'Molly','Wilson',21,'molly@noemail.com','molly21','083 555 5555','FEMALE','01/01/2002'),(12,'Serena','Johnson',20,'serena@noemail.com','serena20','083 555 5555','FEMALE','01/01/2003'),(13,'Kevin','James',17,'kevin@noemail.com','kevin17','083 555 5555','MALE','01/01/2007'),(14,'Miles','Morales',16,'miles@noemail.com','miles16','083 555 5555','MALE','01/01/2008'),(15,'Jenny','Madden',19,'jenny@noemail.com','jenny16','083 555 5555','FEMALE','01/01/2004'),(16,'Patrick','Smith',25,'patrick@noemail.com','patrick16','083 555 5555','MALE','01/01/1999'),(17,'Sophie','Kelly',21,'sophie@noemail.com','sophie16','083 555 5555','FEMALE','01/01/2002'),(18,'Blair','Cosgrove',18,'blair@noemail.com','blair18','083 555 5555','FEMALE','01/01/2005'),(19,'Jack','Handsen',18,'jack@noemail.com','jack18','083 555 5555','MALE','01/01/2005'),(20,'Kenny','Lock',20,'kenny@noemail.com','kenny20','083 555 5555','MALE','01/01/2004'),(21,'Dan','Clarke',24,'dan@noemail.com','dan24','083 555 5555','MALE','01/01/2000');
+INSERT INTO `customer` VALUES (1,'Nathan','McCormack',20,'nthn@noemail.com','nathan20','083 555 5555','MALE','01/01/2003'),(2,'Eoin','Fitz',20,'eoin@noemail.com','eoin20','083 555 5555','MALE','01/01/2003'),(3,'Naoise','O Loughlin',54,'naoise@noemail.com','naoise20','083 555 5555','MALE','01/01/1966'),(4,'Liam','Noone',20,'liam@noemail.com','liam20','083 555 5555','MALE','01/01/2003'),(5,'Cathal','Hardy',108,'cathal@noemail.com','cathal40','083 555 5555','MALE','01/01/1916');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-22 11:59:43
+-- Dump completed on 2024-04-22  9:41:42
