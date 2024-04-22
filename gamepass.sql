@@ -66,9 +66,8 @@ CREATE TABLE `customer` (
   `Phone` varchar(20) NOT NULL,
   `Gender` varchar(20) NOT NULL,
   `Date_of_birth` varchar(30) NOT NULL,
-  `Last_Update` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`Customer_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,6 +76,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,'Nathan','McCormack',20,'nthn@noemail.com','nathan20','083 555 5555','MALE','01/01/2003'),(2,'Eoin','Fitz',20,'eoin@noemail.com','eoin20','083 555 5555','MALE','01/01/2003'),(3,'Naoise','O Loughlin',54,'naoise@noemail.com','naoise20','083 555 5555','MALE','01/01/1966'),(4,'Liam','Noone',20,'liam@noemail.com','liam20','083 555 5555','MALE','01/01/2003'),(5,'Cathal','Hardy',108,'cathal@noemail.com','cathal40','083 555 5555','MALE','01/01/1916');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,4 +242,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-22  9:20:35
+-- Dump completed on 2024-04-22  9:41:42
